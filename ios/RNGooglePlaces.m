@@ -18,24 +18,24 @@ RCT_EXPORT_MODULE()
 }
 
 RCT_REMAP_METHOD(autoCompleteQuery,
-                 queryString: (NSString)query
-                 filterType: (RNGPFilterType)filter
+                 queryString: (NSString *)query
+                 filterType: (kGMSPlacesAutocompleteTypeFilter)filter
                  resolver: (RCTPromiseResolveBlock)resolve
                  rejecter: (RCTPromiseRejectBlock)reject)
 {
     GMSAutocompleteFilter *autocompleteFilter = [[GMSAutocompleteFilter alloc] init];
-    autocompleteFilter.type = filterType;
+    autocompleteFilter.type = type;
 
     [[GMSPlacesClient sharedClient] autocompleteQuery:query
                                                bounds:nil
                                                filter:autocompleteFilter
                                                callback:^(NSArray *results, NSError *error) {
         if (error != nil) {
-          reject([error localizedDescription]);
+          reject(@"E_AUTOCOMPLETE_ERROR", [error description], nil);
           return;
         }
 
-        resolve(results)
+        resolve(results);
     }];
 }
 

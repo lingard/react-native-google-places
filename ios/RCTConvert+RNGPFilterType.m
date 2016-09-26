@@ -2,7 +2,7 @@
 
 @implementation RCTConvert (RNPStatus)
 
-RCT_ENUM_CONVERTER(RNGPFilterType,
+RCT_ENUM_CONVERTER(kGMSPlacesAutocompleteTypeFilter,
   (@{
     @"noFilter" : @(kGMSPlacesAutocompleteTypeFilterNoFilter),
     @"geocode" : @(kGMSPlacesAutocompleteTypeFilterGeocode),

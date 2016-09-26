@@ -1,7 +1,7 @@
 #import "RCTConvert.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-typedef NS_ENUM(NSInteger, RNGPFilterType) {
+typedef NS_ENUM(NSInteger, kGMSPlacesAutocompleteTypeFilter) {
     kGMSPlacesAutocompleteTypeFilterNoFilter,
     kGMSPlacesAutocompleteTypeFilterGeocode,
     kGMSPlacesAutocompleteTypeFilterAddress,
@@ -10,6 +10,6 @@ typedef NS_ENUM(NSInteger, RNGPFilterType) {
     kGMSPlacesAutocompleteTypeFilterCity,
 };
 
-@interface RCTConvert (RNGPFilterType)
+@interface RCTConvert (kGMSPlacesAutocompleteTypeFilter)
 
 @end
