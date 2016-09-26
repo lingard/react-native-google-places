@@ -77,7 +77,7 @@ RCT_REMAP_METHOD(lookUpPlaceID,
 
             resolve(placeData);
         } else {
-            resolve(@{})
+            resolve(@{});
         }
     }];
 }
