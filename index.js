@@ -9,6 +9,10 @@ class RNGooglePlaces {
     return RNGooglePlacesNative.autoCompleteQuery(query, filterType)
   }
 
+  lookUpPlaceID(placeID) {
+    return RNGooglePlacesNative.lookUpPlaceID(placeID)
+  }
+
 	openAutocompleteModal() {
 		return RNGooglePlacesNative.openAutocompleteModal()
 	}
