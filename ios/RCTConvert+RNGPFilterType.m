@@ -11,7 +11,7 @@ RCT_ENUM_CONVERTER(RNGPFilterType,
     @"region" : @(kGMSPlacesAutocompleteTypeFilterRegion),
     @"city" : @(kGMSPlacesAutocompleteTypeFilterCity),
   }),
-  RNGPTypeUnknown, integerValue
+  kGMSPlacesAutocompleteTypeFilterNoFilter, integerValue
 )
 
 @end
