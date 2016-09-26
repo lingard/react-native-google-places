@@ -2,7 +2,7 @@
 #import "RNGooglePlaces.h"
 #import "RCTBridge.h"
 #import "RNGooglePlacesViewController.h"
-#import "RCTConvert+RNGPFilterType.h"
+#import "RCTConvert+RNGPAutocompleteTypeFilter.h"
 #import "RCTRootView.h"
 #import "RCTLog.h"
 
@@ -19,7 +19,7 @@ RCT_EXPORT_MODULE()
 
 RCT_REMAP_METHOD(autoCompleteQuery,
                  queryString: (NSString *)query
-                 filterType: (GMSPlacesAutocompleteTypeFilter)filter
+                 filterType: (RNGPAutocompleteTypeFilter)filter
                  resolver: (RCTPromiseResolveBlock)resolve
                  rejecter: (RCTPromiseRejectBlock)reject)
 {
