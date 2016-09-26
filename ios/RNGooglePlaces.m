@@ -19,7 +19,7 @@ RCT_EXPORT_MODULE()
 
 RCT_REMAP_METHOD(autoCompleteQuery,
                  queryString: (NSString *)query
-                 filterType: (kGMSPlacesAutocompleteTypeFilter)filter
+                 filterType: (GMSPlacesAutocompleteTypeFilter)filter
                  resolver: (RCTPromiseResolveBlock)resolve
                  rejecter: (RCTPromiseRejectBlock)reject)
 {

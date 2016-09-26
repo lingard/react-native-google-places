@@ -1,8 +1,9 @@
 #import "RCTConvert+RNGPFilterType.h"
+#import <GooglePlaces/GooglePlaces.h>
 
-@implementation RCTConvert (kGMSPlacesAutocompleteTypeFilter)
+@implementation RCTConvert (RNGPAutocompleteTypeFilter)
 
-RCT_ENUM_CONVERTER(kGMSPlacesAutocompleteTypeFilter,
+RCT_ENUM_CONVERTER(GMSPlacesAutocompleteTypeFilter,
   (@{
     @"noFilter" : @(kGMSPlacesAutocompleteTypeFilterNoFilter),
     @"geocode" : @(kGMSPlacesAutocompleteTypeFilterGeocode),
