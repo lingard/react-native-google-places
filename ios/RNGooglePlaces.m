@@ -2,6 +2,7 @@
 #import "RNGooglePlaces.h"
 #import "RCTBridge.h"
 #import "RNGooglePlacesViewController.h"
+#import "RCTConvert+RNGPFilterType.h"
 #import "RCTRootView.h"
 #import "RCTLog.h"
 
@@ -16,6 +17,28 @@ RCT_EXPORT_MODULE()
     return dispatch_get_main_queue();
 }
 
+RCT_REMAP_METHOD(autoCompleteQuery,
+                 queryString: (NSString)query
+                 filterType: (RNGPFilterType)filter
+                 resolver: (RCTPromiseResolveBlock)resolve
+                 rejecter: (RCTPromiseRejectBlock)reject)
+{
+    GMSAutocompleteFilter *autocompleteFilter = [[GMSAutocompleteFilter alloc] init];
+    autocompleteFilter.type = filterType;
+
+    [[GMSPlacesClient sharedClient] autocompleteQuery:query
+                                               bounds:nil
+                                               filter:autocompleteFilter
+                                               callback:^(NSArray *results, NSError *error) {
+        if (error != nil) {
+          reject([error localizedDescription]);
+          return;
+        }
+
+        resolve(results)
+    }];
+}
+
 RCT_EXPORT_METHOD(openAutocompleteModal: (RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject)
 {
@@ -24,8 +47,8 @@ RCT_EXPORT_METHOD(openAutocompleteModal: (RCTPromiseResolveBlock)resolve
 		[a openAutocompleteModal: resolve rejecter: reject];
 	}
 	@catch (NSException * e) {
-        reject(@"E_OPEN_FAILED", @"Could not open modal", [self errorFromException:e]);
-    }
+    reject(@"E_OPEN_FAILED", @"Could not open modal", [self errorFromException:e]);
+  }
 }
 
 - (NSError *) errorFromException: (NSException *) exception
@@ -45,5 +68,5 @@ RCT_EXPORT_METHOD(openAutocompleteModal: (RCTPromiseResolveBlock)resolve
 
 
 @end
-  
-  
+
+
