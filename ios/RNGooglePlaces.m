@@ -24,7 +24,7 @@ RCT_REMAP_METHOD(autoCompleteQuery,
                  rejecter: (RCTPromiseRejectBlock)reject)
 {
     GMSAutocompleteFilter *autocompleteFilter = [[GMSAutocompleteFilter alloc] init];
-    autocompleteFilter.type = type;
+    autocompleteFilter.type = filter;
 
     [[GMSPlacesClient sharedClient] autocompleteQuery:query
                                                bounds:nil

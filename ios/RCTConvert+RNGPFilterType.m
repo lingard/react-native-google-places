@@ -1,6 +1,6 @@
 #import "RCTConvert+RNGPFilterType.h"
 
-@implementation RCTConvert (RNPStatus)
+@implementation RCTConvert (kGMSPlacesAutocompleteTypeFilter)
 
 RCT_ENUM_CONVERTER(kGMSPlacesAutocompleteTypeFilter,
   (@{
