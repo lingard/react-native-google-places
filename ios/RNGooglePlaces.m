@@ -37,7 +37,7 @@ RCT_REMAP_METHOD(autoCompleteQuery,
         }
 
         for (GMSAutocompletePrediction* result in results) {
-            NSMutableDictionary *placeData =[[NSMutableDictionary alloc] init];
+            NSMutableDictionary *placeData = [[NSMutableDictionary alloc] init];
 
             placeData[@"attributedFullText"] = result.attributedFullText.string;
             placeData[@"attributedPrimaryText"] = result.attributedPrimaryText.string;

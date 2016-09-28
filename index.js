@@ -13,9 +13,9 @@ class RNGooglePlaces {
     return RNGooglePlacesNative.lookUpPlaceID(placeID)
   }
 
-	openAutocompleteModal() {
-		return RNGooglePlacesNative.openAutocompleteModal()
-	}
+  openAutocompleteModal() {
+  	return RNGooglePlacesNative.openAutocompleteModal()
+  }
 }
 
 export default new RNGooglePlaces()
