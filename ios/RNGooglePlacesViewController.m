@@ -1,8 +1,8 @@
 #import "RNGooglePlacesViewController.h"
 
 #import <GooglePlaces/GooglePlaces.h>
-#import "RCTUtils.h"
-#import "RCTLog.h"
+#import <React/RCTUtils.h>
+#import <React/RCTLog.h>
 
 @interface RNGooglePlacesViewController ()<GMSAutocompleteViewControllerDelegate>
 @end
@@ -15,7 +15,7 @@
 	RCTPromiseRejectBlock _reject;
 }
 
-- (instancetype)init 
+- (instancetype)init
 {
 	self = [super init];
 	instance = self;
@@ -38,7 +38,7 @@
 
 // Handle the user's selection.
 - (void)viewController:(GMSAutocompleteViewController *)viewController
-	didAutocompleteWithPlace:(GMSPlace *)place 
+	didAutocompleteWithPlace:(GMSPlace *)place
 {
 	UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
 	[rootViewController dismissViewControllerAnimated:YES completion:nil];
@@ -57,13 +57,13 @@
         placeData[@"phoneNumber"] = place.phoneNumber;
         placeData[@"website"] = place.website.absoluteString;
         placeData[@"placeID"] = place.placeID;
-        
+
         _resolve(placeData);
     }
 }
 
 - (void)viewController:(GMSAutocompleteViewController *)viewController
-	didFailAutocompleteWithError:(NSError *)error 
+	didFailAutocompleteWithError:(NSError *)error
 {
 	UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
 	[rootViewController dismissViewControllerAnimated:YES completion:nil];
@@ -74,7 +74,7 @@
 }
 
 // User canceled the operation.
-- (void)wasCancelled:(GMSAutocompleteViewController *)viewController 
+- (void)wasCancelled:(GMSAutocompleteViewController *)viewController
 {
 	UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
 	[rootViewController dismissViewControllerAnimated:YES completion:nil];
@@ -83,12 +83,12 @@
 }
 
 // Turn the network activity indicator on and off again.
-- (void)didRequestAutocompletePredictions:(GMSAutocompleteViewController *)viewController 
+- (void)didRequestAutocompletePredictions:(GMSAutocompleteViewController *)viewController
 {
   	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
-- (void)didUpdateAutocompletePredictions:(GMSAutocompleteViewController *)viewController 
+- (void)didUpdateAutocompletePredictions:(GMSAutocompleteViewController *)viewController
 {
   	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
